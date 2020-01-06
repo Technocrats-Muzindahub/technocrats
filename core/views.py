@@ -144,14 +144,16 @@ def conferenceroom(request):
 	from django.shortcuts import redirect
 
 def confirm(request, pk = None):
-    if request.method == 'POST':
+	form = ConfirmForm(request.POST or None)
+	if form.is_valid:
+		instance = form.save(commit=False)
         if pk:
             invalid_dates = False
             #get the room 
             room = Room.objects.get(pk = pk)
-            guest_id = request.user
-            check_in = request.session['check_in'] 
-            check_out = request.session['check_out']
+            guest_id = instance.user
+            check_in = instance.session['check_in'] 
+            check_out = instance.session['check_out']
 
             # check whether the dates are valid
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
@@ -165,12 +167,12 @@ def confirm(request, pk = None):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                  return render(request, "system/reserve.html", {"errors": "This room is not available on your selected dates"})                  
+                  return render(request, "bookingssingle.html", {"errors": "This room is not available on your selected dates"})                  
 
              # dates are valid             
              reservation = Reservation(
-             check_in = check_in, 
-             check_out = check_out,
+             check_in = reservation.check_in, 
+             check_out = reservation.check_out,
              room_id = room.id,
              guest_id = guest_id.id
              )
@@ -178,7 +180,10 @@ def confirm(request, pk = None):
              reservation.save()
 
              #redirect to success page (need to define this as a separate view)
-             return redirect("/reservation_success")
+             return redirect("success")
 
 
-      return render(request, "system/reserve.html", args)
+      return render(request, "bookingssingle.html", args)
+
+
+# 			

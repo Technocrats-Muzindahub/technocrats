@@ -32,6 +32,7 @@ urlpatterns = [
     path('rooms/double-room', views.doubleroom, name='doubleroom'),
     path('rooms/executive-room', views.executiveroom, name='executiveroom'),
     path('conference-room/', views.conferenceroom, name='conferenceroom'),
+    path('reservation/success', views.confirm, name='success'),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
