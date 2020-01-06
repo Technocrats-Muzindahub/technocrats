@@ -1,0 +1,85 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Itekeng Lodge | Conference Rooms</title>
+  <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+{% include "style.html" %}
+
+</head>
+<body>
+  {% include 'navbar.html' %}
+
+
+     <div class="container" style="padding: 50px 0 50px;">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3" >Conference | |
+        <small>Workshops</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active">conference-rooms</li>
+      </ol>
+
+      <!-- Intro Content -->
+      <div class="row" style="padding: 50px 0 50px;">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4" src="{% static 'img/conference1.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h2>Our Conference Rooms</h2>
+          <p>Our venues have been created with all-conference types in mind. We have U-Shape, Double U-Shape, Classroom, Cinema and Round Table setups available. Our venues can accommodate any number between 2 to 200 delegates with ease, in well-equipped facilities. </p>
+          <p>We have indoor and outdoor conference to suit any type of activity companies could wish to partake</p>
+          <p>Maximum occupancy is 150 people, but an extra 50 people can fit for our outdoor space making a total of 200</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+
+      <h2>Features</h2>
+      <div class="row" style="padding: 50px 0 50px;">
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/workshop1.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/workshop2.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4" >
+          <img class="img-fluid" src="{% static 'img/workshop.jpg' %}" alt="" >
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/workshop3.jpg' %}" alt="">
+        </div>
+        
+      <!-- /.row -->
+         <div>
+          <h2>Book Now</h2>
+         <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+        </div> 
+       
+    </div>   
+
+    
+    {% include 'footer.html' %}
+
+       <script src="{% static 'jquery/jquery.min.js' %}"></script>
+       <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>  

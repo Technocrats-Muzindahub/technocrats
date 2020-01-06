@@ -1,0 +1,135 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Itekeng Lodge | Rooms</title>
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+{% include "style.html" %}
+
+</head>
+<body>
+	{% include 'navbar.html' %}
+     <div class="container">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3">Rooms |
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item active">rooms</li>
+      </ol>
+
+      <!-- Intro Content -->
+      <div class="row" style="padding: 50px 0 50px;">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4" src="{% static 'img/executiveroom3.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h2>About Our Rooms</h2>
+          <p>We have eight luxury suites split over 2 camps. Two are family suites and six are double suites. The double suites sleep two people (double or twin), and family suites sleep two people (double or twin) downstairs, and two people (twin) in the open loft. All the suites are spacious and fully air-conditioned.</p>
+          <p>Each suite has an ample en-suite bathroom with modern finishes (with bath and shower), comfy seating area and private patio. There is a stocked mini bar in each room, which will be charged for on departure. There is also a complimentary tea and coffee station in each suite.</p>
+          <p>The main entertainment area is open plan, and has a lounge with a TV, DSTV and DVD player, a beautiful bar area with pool table and various board games, and an outside patio area that seats up to ten people</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <!-- Team Members -->
+      <h2>Our Rooms</h2>
+
+      <div class="row" style="padding: 50px 0 50px;">
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="{% static 'img/singleroom4.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Single Rooms</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Phiri Suite</h6>
+                  <ul class="list-group list-group-flush" style="padding: 2rem 0rem;">
+                      <li class="list-group-item"><i class="far fa-snowflake fa-2x"></i>  Bar Fridge</li>
+                      <li class="list-group-item"><i class="fas fa-user-lock fa-2x"></i>  Safe Box</li>
+                      <li class="list-group-item"><i class="fas fa-shower fa-2x"></i>  Private Shower</li>
+                      <li class="list-group-item"> <i class="fa fa-wind fa-2x"></i>  Air Conditioning</li>
+                      <li class="list-group-item"><i class="fas fa-tv fa-2x"></i>  Private TV</li>
+                  </ul>
+              <h4 class="card-title">From $50/night</h4>
+            </div>
+            <div class="card-footer">
+              <!-- <button type="button" class="btn btn-primary" href="{% url 'singleroom' %}">Learn More</button> -->
+              <strong><a class="btn btn-primary" href="{% url 'singleroom' %}">Learn More</a></strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="{% static 'img/doubleroom3.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Double Rooms</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Lengau Suite</h6>
+              <ul class="list-group list-group-flush" style="padding: 2rem 0rem;">
+                  <li class="list-group-item"><i class="far fa-snowflake fa-2x"></i>  Bar Fridge</li>
+                  <li class="list-group-item"><i class="fas fa-user-lock fa-2x"></i>  Safe Box</li>
+                  <li class="list-group-item"><i class="fas fa-shower fa-2x"></i>  Private Shower</li>
+                  <li class="list-group-item"> <i class="fa fa-wind fa-2x"></i>  Air Conditioning</li>
+                  <li class="list-group-item"><i class="fas fa-tv fa-2x"></i>  Private TV</li>
+              </ul>
+              <h4 class="card-title">From $65/night</h4>
+
+            </div>
+            <div class="card-footer">
+              <!-- <button type="submit" class="btn btn-primary" href="{% url 'doubleroom' %}" name="learnmore">Learn More</button> -->
+              <a class="btn btn-primary" href="{% url 'doubleroom' %}">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <div class="card h-100 text-center">
+            <img class="card-img-top" src="{% static 'img/doubleroom1.jpg' %}" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Executive Rooms</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Tau Suite</h6>
+              <ul class="list-group list-group-flush" style="padding: 2rem 0rem;">
+                  <li class="list-group-item"><i class="far fa-snowflake fa-2x"></i>  Bar Fridge</li>
+                  <li class="list-group-item"><i class="fas fa-user-lock fa-2x"></i>  Safe Box</li>
+                  <li class="list-group-item"><i class="fas fa-bath fa-2x"></i>  Private Bath & Shower</li>
+                  <li class="list-group-item"> <i class="fa fa-wind fa-2x"></i>  Air Conditioning</li>
+                  <li class="list-group-item"><i class="fas fa-tv fa-2x"></i>  Private TV </li>
+              </ul>
+              <h4 class="card-title">From $80/night</h4>
+            </div>
+            <div class="card-footer">
+              <!-- <button type="submit" class="btn btn-primary" href="{% url 'executiveroom' %}" name="learnmore">Learn More</button> -->
+              <a class="btn btn-primary" href="{% url 'executiveroom' %}">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.row -->
+         <div>
+          <h2>Check Availability</h2>
+         <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Check Now</button>
+        </form>
+        </div> 
+       
+    </div>   
+
+    
+    {% include 'footer.html' %}
+
+       <script src="{% static 'jquery/jquery.min.js' %}"></script>
+       <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>  

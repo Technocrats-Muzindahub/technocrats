@@ -1,0 +1,284 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Itekeng Lodge</title>
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Favicons
+    ================================================== -->
+{% include "style.html" %} 
+<link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
+<link rel="apple-touch-icon" href="{% static 'img/apple-touch-icon.png' %}">
+<link rel="apple-touch-icon" sizes="72x72" href="{% static 'img/apple-touch-icon-72x72.png' %}">
+<link rel="apple-touch-icon" sizes="114x114" href="{% static 'img/apple-touch-icon-114x114.png' %}">
+
+
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css"  href="{% static 'css/bootstrap.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome/css/font-awesome.css' %}">
+<link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+
+<!-- Stylesheet
+    ================================================== -->
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/nivo-lightbox/nivo-lightbox.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/nivo-lightbox/default.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<!-- Navigation
+    ==========================================-->
+{% include "navbar.html" %}     
+
+<!-- Header -->
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 intro-text">
+            <h1>Itekeng Lodge<span></span></h1>
+            <p>Where business meets tranquility</p>
+            <a href="#we-offer" class="btn btn-custom btn-lg page-scroll">Learn More</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- Features Section -->
+<div id="we-offer" class="text-center" style="padding: 100px 0 250px;">
+  <div class="container">
+    <div class="col-md-10 col-md-offset-1 section-title">
+      <h2>We offer</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-3"> <i class="fa fa-wheelchair"></i>
+        <h3>Wheelchair Access</h3>
+        <p>All our facilities are wheelchair friendly.</p>
+      </div>
+      <div class="col-xs-6 col-md-3"> <i class="fa fa-wifi"></i>
+        <h3>Wifi</h3>
+        <p>premium access to highspeed internet from anywhere.</p>
+      </div>
+      <div class="col-xs-6 col-md-3"> <i class="fa fa-group"></i>
+        <h3>Workshops</h3>
+        <p>Ample space for indoor and outdoor workshop activities to cater for all types of events.</p>
+      </div>
+      <div class="col-xs-6 col-md-3"> <i class="fa fa-shuttle-van"></i>
+        <h3>Shuttle services</h3>
+        <p>We offer shuttle services to all our customers during their stay at our lodge</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Start Our Room Area -->
+
+
+<!-- About Section -->
+<div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> <img src="{% static 'img/about1.jpg' %}" class="img-responsive" alt=""> </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>A truly unforgettable experience awaits you at the Itekeng Lodge. Situated only 55 minutes from the Chobe River for trips that are truly unforgetable. With exclusive lodge suites, Itekeng Lodge promises a comfortable, private and relaxing stay. Kasane, with its rich wildlife and vegetation, open land and valleys, combines the Lowveld, Highveld and Bushveld experience all in one exquisite lodge. It is a great base from which to explorethe Okavango Delta and return to for an evening braai in the peaceful settings of the bush<a href="{% url 'about' %}">...(more)</a></p>
+          <!-- <h3>Why Choose Us?</h3>
+          <div class="list-style">
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul>
+                <li>Lorem ipsum dolor</li>
+                <li>Tempor incididunt</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Incididunt ut labore</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-xs-12">
+              <ul>
+                <li>Aliquip ex ea commodo</li>
+                <li>Lorem ipsum dolor</li>
+                <li>Exercitation ullamco</li>
+                <li>Lorem ipsum dolor</li>
+              </ul>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="text-center">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Services</h2>
+      <p>Whether business or pleasure Itekeng Lodge will cater for your needs</p>
+    </div>
+      <div class="card-deck">
+        <div class="card">
+          <img class="card-img-top" src="{% static 'img/doubleroom2.jpg' %}" alt="Card image cap" height="250px">
+          <div class="card-body">
+            <h5 class="card-title"><font color="black"><strong>Our Single & Double Rooms</strong></font></h5><br>
+            <p class="card-text"><font color="black">With ten tastefully appointed rooms and chalets, a private home and charming public spaces set amongst beautifully manicured gardens, Itekeng Lodge is an oasis of tranquility and the perfect location for guests to relax and unwind after exploring the iconic surroundings of Chobe.</font></p><br>
+            <p><font color="black">Offering personalised service to each of our guests, we are committed to ensuring you have a truly memorable stay with us.</font></p><br>
+           <p><font color="black"><strong>From $50/night...</strong><a href="{% url 'rooms' %}" class="btn btn-warning">Learn More</a></font></p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="{% static 'img/executiveroom2.jpg' %}" alt="Card image cap" height="250px">
+          <div class="card-body">
+            <h5 class="card-title"><font color="black"><strong>Our Executive Rooms</strong></font></h5><br>
+            <p><font color="black">A truly unforgettable experience awaits you at the Itekeng Lodge.With only five executive suites, we promise a comfortable, private and relaxing stay dedicating our staff to offer personalised service to each of our guests, we are committed to ensuring you have a truly memorable stay with us.</font></p><br>
+           <p><font color="black">We offer various board bases, including Bed & Breakfast, Full Board and Fully Inclusive.</font></p><br>
+           <p><font color="black"><strong>From $80/night...</strong><a href="{% url 'rooms' %}" class="btn btn-warning">Learn More</a></font></p>
+          </div>
+        </div>
+        <div class="card">
+          <img class="card-img-top" src="{% static 'img/workshop2.jpg' %}" alt="Card image cap" height="250px">
+          <div class="card-body">
+            <h5 class="card-title"><font color="black"><strong>Conference & Workshops</strong></font></h5><br>
+            <p class="card-text"><font color="black">Finding the perfect conference venue in Kasane can be challenging. There are very few venues in the city to choose from and many don’t cater to distinct requirements. Itekeng Lodge offers a host of  indoor and outdoor venues and our range of creative dining options will ensure a memorable multiple-day conference.</font></p><br>
+            <p><font color="black"> There is no other venue in Kasane that can provide the variety and options that Itekeng can! </font></p><br>
+           <p><font color="black"><strong>From $200/day...</strong><a href="{% url 'conferenceroom' %}" class="btn btn-warning">Learn More</a></font></p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Gallery Section -->
+<div id="portfolio" class="text-center">
+  <div class="container">
+    <div class="section-title">
+      <h2>Gallery</h2>
+      <p>A couple of Pictures of our facilities</p>
+    </div>
+    <div class="row">
+      <div class="portfolio-items">
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/about3.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Tau Suite</h4>
+              </div>
+              <img src="{% static 'img/about3.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/outdoors2.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Public Patio</h4>
+              </div>
+              <img src="{% static 'img/outdoors2.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/outdoors1.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Private Patio</h4>
+              </div>
+              <img src="{% static 'img/outdoors1.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/singleroom4.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Single Room</h4>
+              </div>
+              <img src="{% static 'img/singleroom4.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/executiveroom1.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Executive Room: Tau Suite</h4>
+              </div>
+              <img src="{% static 'img/executiveroom1.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/doubleroom3.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Double Room</h4>
+              </div>
+              <img src="{% static 'img/doubleroom3.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/conference1.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Coference & Workshop</h4>
+              </div>
+              <img src="{% static 'img/conference1.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/slide.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Kids Slide</h4>
+              </div>
+              <img src="{% static 'img/slide.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-4">
+          <div class="portfolio-item">
+            <div class="hover-bg"> <a href="{% static 'img/outdoors4.jpg' %}" title="Project Title" data-lightbox-gallery="gallery1">
+              <div class="hover-text">
+                <h4>Outdoor Lounge</h4>
+              </div>
+              <img src="{% static 'img/outdoors4.jpg' %}" class="img-responsive" alt="Project Title"> </a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section id="maps" style="padding: 5px 0">
+    <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=sedudu%20road%2C%20Kasane&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.whatismyip-address.com">the what what</a></div><style>.mapouter{position:relative;text-align:right;height:400px;width:100%;}.gmap_canvas {overflow:hidden;background:none!important;height:400px;width:100%;}</style></div>
+  </section>
+
+{% include "footer.html" %}
+
+<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/nivo-lightbox.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/jqBootstrapValidation.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/contact_me.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+</script>
+</body>
+</html>

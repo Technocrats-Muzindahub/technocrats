@@ -1,0 +1,94 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Itekeng Lodge | Single Rooms</title>
+  <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+{% include "style.html" %}
+
+</head>
+<body>
+  {% include 'navbar.html' %}
+
+
+     <div class="container" style="padding: 50px 0 50px;">
+
+      <!-- Page Heading/Breadcrumbs -->
+      <h1 class="mt-4 mb-3" >Rooms |
+        <small>Single</small>
+      </h1>
+
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+          <a href="{% url 'rooms' %}">Rooms</a>
+        </li>
+        <li class="breadcrumb-item active">Single-room</li>
+      </ol>
+
+      <!-- Intro Content -->
+      <div class="row" style="padding: 50px 0 50px;">
+        <div class="col-lg-6">
+          <img class="img-fluid rounded mb-4" src="{% static 'img/singleroom5.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-6">
+          <h2>Our Single Rooms</h2>
+          <p>Standard single rooms are comfortable with a clean, modern and cultural design. All single rooms come with an en-suite bathroom with walk-in shower and free toiletries, an LCD Smart TV, tea and coffee making facilities and a desk.</p>
+          <p>Comfort and Safety are our priority at Itekeng Lodge, and this is why each suite has a safe box where customers can store their important documents during their stay in the hotel.</p>
+          <p>Maximum occupancy is 1 guests, but an extra bed may be available on request at an extra charge</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+
+      <h2>Features</h2>
+      <div class="row">
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/singleroom2.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/cups2.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4" >
+          <img class="img-fluid" src="{% static 'img/bath8.jpg' %}" alt="" >
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/food1.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/towel2.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-2 col-sm-4 mb-4">
+          <img class="img-fluid" src="{% static 'img/soap.jpg' %}" alt="">
+        </div>
+      </div>
+      <!-- /.row -->
+         <div>
+          <h2>Check Availability</h2>
+         <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+        </div> 
+       
+    </div>   
+
+    
+    {% include 'footer.html' %}
+
+       <script src="{% static 'jquery/jquery.min.js' %}"></script>
+       <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html>  

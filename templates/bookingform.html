@@ -1,0 +1,10 @@
+{% load crispy_forms_tags %}
+
+	<div class="container"style="padding: 50px 0; display: none;">
+        <h2>Book Single room</h2>
+        <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Check</button>
+        </form>
+    </div>   

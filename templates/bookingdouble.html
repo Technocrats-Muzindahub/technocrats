@@ -1,0 +1,49 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>{% block content %} Itekeng Lodge | Bookings{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap-grid.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap-reboot.min.css' %}">
+
+    <script src="https://kit.fontawesome.com/14d1f2e04d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+    <script src="{% static 'js/jq/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/jq/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/jq-easing/jquery.easing.min.js' %}"></script>
+	<script src="{% static 'js/scrolling-nav.js' %}"></script>
+
+</head>
+<body>
+
+	{% include 'navbar.html' %}
+
+	<div class="container"style="padding: 50px 0">
+        <h2>Book Single room</h2>
+        <form action="" method="POST">
+            {{ form|crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Book Now</button>
+        </form>
+    </div>
+
+    {% include 'footer.html' %}
+</body>
+</html>

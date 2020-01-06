@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About Us</title>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+
+  <style type="text/css">
+    #about {
+  padding: 100px 0;
+}
+#about h3 {
+  font-size: 22px;
+  margin: 0 0 20px 0;
+}
+#about h2 {
+  position: relative;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+}
+#about h2::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  height: 4px;
+  width: 60px;
+  bottom: 0;
+  left: 0;
+}
+#about .about-text li {
+  margin-bottom: 6px;
+  margin-left: 6px;
+  list-style: none;
+  padding: 0;
+}
+#about .about-text li:before {
+  content: '\f00c';
+  font-family: 'FontAwesome';
+  color: #5ca9fb;
+  font-size: 11px;
+  font-weight: 300;
+  padding-right: 8px;
+}
+#about img {
+  width: 520px;
+  margin-top: 10px;
+  background: #fff;
+  border-right: 0;
+  box-shadow: 0 0 50px rgba(0,0,0,0.06);
+}
+#about p {
+  line-height: 24px;
+  margin: 30px 0;
+}
+  </style>
+
+
+</head>
+<body>
+  {% include 'navbar.html' %}
+  <div id="about">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6"> 
+        <img src="{% static 'img/about1.jpg' %}" class="img-responsive" alt="">
+        <img src="{% static 'img/about3.jpg' %}" class="img-responsive" alt="">
+       </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="about-text">
+          <h2>About Us</h2>
+          <p>A truly unforgettable experience awaits you at the Itekeng Lodge. Situated only 55 minutes from the Chobe River for trips that are truly unforgetable. With exclusive lodge suites, Itekeng Lodge promises a comfortable, private and relaxing stay. Kasane, with its rich wildlife and vegetation, open land and valleys, combines the Lowveld, Highveld and Bushveld experience all in one exquisite lodge. It is a great base from which to explorethe Okavango Delta and return to for an evening braai in the peaceful settings of the bush.</p>
+          <h3>Why Choose Us?</h3>
+
+          <p>After a fascinating morning game drive you can spend the day relaxing around the swimming pool or cycling through the expansive farm while African wild life laze in the shade of the Acacia trees only meters away from you. The magnificent kloofs and sheer rock faces that surround Mahikeng Lodge are best explored on foot or horseback while the lookout points boast magnificent sights of the expansive land that lies before you. The picturesque viewing deck, perched on the highest point of the farm, offers a breathtaking panoramic view of the entire lodge and beyond into the valley of the Magalies Meander.</p>
+
+          <p>Watch the sun paint the sky as the baboons on the nearby cliff bid farewell to the day. Sip on sundowners or get down on one knee for a romantic marriage proposal. Wake up and watch the sun rise over the magnificent Magalies Meander and then get back to nature by taking a rejuvenating outdoor shower. Spend the morning getting rid of the city stress with a full body massage in the tranquil surroundings of the bush or on your own private balcony. The four lodges are self-catering however a caterer can be arranged for some or all meals if you so wish. Given enough notice, we can cater for just about any special request to ensure that you feel at home in the African bush. Mahikeng Lodge is truly the place to be, when you just need to be.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/SmoothScroll.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/nivo-lightbox.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/jqBootstrapValidation.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/contact_me.js' %}"></script> 
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+{% include "footer.html" %}
+</body>
+</html>
