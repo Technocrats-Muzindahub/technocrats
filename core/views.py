@@ -147,43 +147,40 @@ def confirm(request, pk = None):
 	form = ConfirmForm(request.POST or None)
 	if form.is_valid:
 		instance = form.save(commit=False)
-        if pk:
-            invalid_dates = False
-            #get the room 
-            room = Room.objects.get(pk = pk)
-            guest_id = instance.user
-            check_in = instance.session['check_in'] 
-            check_out = instance.session['check_out']
+		invalid_dates = False
+		#get the room 
+		room = Rooms.objects.get(pk = pk)
+		guest_id = instance.user
+		check_in = instance.session['check_in'] 
+		check_out = instance.session['check_out']
 
-            # check whether the dates are valid
-            # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
-            case_1 = Reservation.objects.filter(room=room, check_in__lte=check_in, check_out__gte=check_in).exists()
+		# check whether the dates are valid
+		# case 1: a room is booked before the check_in date, and checks out after the requested check_in date
+		case_1 = Reservation.objects.filter(room=room, check_in__lte=check_in, check_out__gte=check_in).exists()
 
-            # case 2: a room is booked before the requested check_out date and check_out date is after requested check_out date
-            case_2 = Reservation.objects.filter(room=room, check_in__lte=check_out, check_out__gte=check_out).exists()
+		# case 2: a room is booked before the requested check_out date and check_out date is after requested check_out date
+		case_2 = Reservation.objects.filter(room=room, check_in__lte=check_out, check_out__gte=check_out).exists()
 
-            case_3 = Reservation.objects.filter(room=room, check_in__gte=check_in, check_out__lte=check_out).exists()
-
-
-            # if either of these is true, abort and render the error
-            if case_1 or case_2 or case_3:
-                  return render(request, "bookingssingle.html", {"errors": "This room is not available on your selected dates"})                  
-
-             # dates are valid             
-             reservation = Reservation(
-             check_in = reservation.check_in, 
-             check_out = reservation.check_out,
-             room_id = room.id,
-             guest_id = guest_id.id
-             )
-
-             reservation.save()
-
-             #redirect to success page (need to define this as a separate view)
-             return redirect("success")
+		case_3 = Reservation.objects.filter(room=room, check_in__gte=check_in, check_out__lte=check_out).exists()
 
 
-      return render(request, "bookingssingle.html", args)
+		# if either of these is true, abort and render the error
+		if case_1 or case_2 or case_3:
+			return render(request, "bookingssingle.html", {"errors": "This room is not available on your selected dates"})                  
+
+		# dates are valid             
+		reservation = Reservation(
+			check_in = reservation.check_in, 
+			check_out = reservation.check_out,
+			room_id = room.id,
+			guest_id = guest_id.id,
+			)
+
+	reservation.save()
+
+	#redirect to success page (need to define this as a separate view)
+	return redirect("success")
 
 
-# 			
+	return render(request, "bookingssingle.html", args)
+		
