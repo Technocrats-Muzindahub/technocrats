@@ -1,6 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Room, Reservation
+from django.db import models
+
+
+class DateFix(forms.DateInput):
+	input_type = "date"
 
 class SingleRoomForm(forms.ModelForm):
 	class Meta:
@@ -56,7 +61,10 @@ class ConfirmForm(object):
 			" check_in",
 			" check_out",
 			"room",
-			"guest",
 		]
+		widgets = {
+			"check_in" : forms.DateInput(format='%d/%m/%Y'),
+			"check_out" : forms.DateInput(format='%d/%m/%Y'),
+		}
 
 						
