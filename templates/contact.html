@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel="stylesheet">
 </head>
 <body>
+  {% include "navbar.html" %}
 	<div id="contact">
   <div class="container">
     <div class="col-md-8">
@@ -81,6 +82,8 @@
     </div>
   </div>
 </div>
+
+{% include "footer.html" %}
 
 <script type="text/javascript" src="{% static 'js/jquery.1.11.1.js' %}"></script> 
 <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> 
