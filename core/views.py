@@ -1,9 +1,9 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect
 from . import forms
 from .models import Reservation
-from datetime import timedelta, date
-from django.contrib.auth.models import User
+
 from django.contrib import messages
+
 
 
 # Create your views here.
@@ -13,7 +13,7 @@ def home(request):
 
 def rooms(request):
     form = forms.AvailabilityForm()
-    context = {"form":form}
+    context = {"form": form}
     reservation = Reservation
     if request.method == 'POST':
         form = forms.AvailabilityForm(request.POST or None)
@@ -25,7 +25,8 @@ def rooms(request):
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
             case_1 = Reservation.objects.filter(check_in__lte=check_in, check_out__gte=check_out).exists()
 
-            # case 2: room is booked before the requested check_out date and check_out date is after requested check_out date
+            # case 2: room is booked before the requested check_out date and check_out date is after requested
+            # check_out date
             case_2 = Reservation.objects.filter(check_in__lte=check_out, check_out__gte=check_out).exists()
 
             # case3: room is booked in a date which lies between the two requested check-in/check-out dates
@@ -33,13 +34,20 @@ def rooms(request):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                return render(request, "availability.html",
-                              {"errors": "This room is not available on your selected dates", "form": form})
+                messages.add_message(request, messages.WARNING,
+                                     'Unfortunately there are no {} available on that date please pick another date'.format(
+                                         reserve.room_type))
+                form = forms.AvailabilityForm()
             # else dates are valid
+            elif reserve.room_type == 0:
+                return redirect('singleroom')
 
-            reserve.save()
-            messages.add_message(request, messages.SUCCESS, 'Room is available for your stay here')
-            return redirect('/complete_booking')
+            elif reserve.room_type == 1:
+                return redirect('doubleroom')
+
+            else:
+                return  redirect('executiveroom')
+
 
     return render(request, "rooms.html", context)
 
@@ -53,8 +61,8 @@ def contact(request):
 
 
 def singleroom(request):
-    form = forms.AvailabilityForm()
-    context = {"form":form}
+    form = forms.RoomForm()
+    context = {"form": form}
     reservation = Reservation
     if request.method == 'POST':
         form = forms.AvailabilityForm(request.POST or None)
@@ -66,7 +74,8 @@ def singleroom(request):
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
             case_1 = Reservation.objects.filter(check_in__lte=check_in, check_out__gte=check_out).exists()
 
-            # case 2: room is booked before the requested check_out date and check_out date is after requested check_out date
+            # case 2: room is booked before the requested check_out date and check_out date is after requested
+            # check_out date
             case_2 = Reservation.objects.filter(check_in__lte=check_out, check_out__gte=check_out).exists()
 
             # case3: room is booked in a date which lies between the two requested check-in/check-out dates
@@ -74,20 +83,21 @@ def singleroom(request):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                return render(request, "availability.html",
-                              {"errors": "This room is not available on your selected dates", "form": form})
+                messages.add_message(request, messages.WARNING,
+                                     'Unfortunately there are no {} available on that date please pick another date'
+                                     .format(reserve.room_type))
+                form = forms.AvailabilityForm()
             # else dates are valid
 
             reserve.save()
-            messages.add_message(request, messages.SUCCESS, 'Room is available for your stay here')
-            return redirect('/complete_booking')
+            messages.add_message(request, messages.SUCCESS, 'Your Room has been booked for your stay here please check your email for completing booking')
 
     return render(request, "singleroom.html", context)
 
 
 def doubleroom(request):
-    form = forms.AvailabilityForm()
-    context = {"form":form}
+    form = forms.RoomForm()
+    context = {"form": form}
     reservation = Reservation
     if request.method == 'POST':
         form = forms.AvailabilityForm(request.POST or None)
@@ -99,7 +109,8 @@ def doubleroom(request):
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
             case_1 = Reservation.objects.filter(check_in__lte=check_in, check_out__gte=check_out).exists()
 
-            # case 2: room is booked before the requested check_out date and check_out date is after requested check_out date
+            # case 2: room is booked before the requested check_out date and check_out date is after requested
+            # check_out date
             case_2 = Reservation.objects.filter(check_in__lte=check_out, check_out__gte=check_out).exists()
 
             # case3: room is booked in a date which lies between the two requested check-in/check-out dates
@@ -107,8 +118,10 @@ def doubleroom(request):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                return render(request, "availability.html",
-                              {"errors": "This room is not available on your selected dates", "form": form})
+                messages.add_message(request, messages.WARNING,
+                                     'Unfortunately there are no {} available on that date please pick another date'.format(
+                                         reserve.room_type))
+                form = forms.AvailabilityForm()
             # else dates are valid
 
             reserve.save()
@@ -119,8 +132,8 @@ def doubleroom(request):
 
 
 def executiveroom(request):
-    form = forms.AvailabilityForm()
-    context = {"form":form}
+    form = forms.RoomForm()
+    context = {"form": form}
     reservation = Reservation
     if request.method == 'POST':
         form = forms.AvailabilityForm(request.POST or None)
@@ -132,7 +145,8 @@ def executiveroom(request):
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
             case_1 = Reservation.objects.filter(check_in__lte=check_in, check_out__gte=check_out).exists()
 
-            # case 2: room is booked before the requested check_out date and check_out date is after requested check_out date
+            # case 2: room is booked before the requested check_out date and check_out date is after requested
+            # check_out date
             case_2 = Reservation.objects.filter(check_in__lte=check_out, check_out__gte=check_out).exists()
 
             # case3: room is booked in a date which lies between the two requested check-in/check-out dates
@@ -140,8 +154,10 @@ def executiveroom(request):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                return render(request, "availability.html",
-                              {"errors": "This room is not available on your selected dates", "form": form})
+                messages.add_message(request, messages.WARNING,
+                                     'Unfortunately there are no {} available on that date please pick another date'.format(
+                                         reserve.room_type))
+                form = forms.AvailabilityForm()
             # else dates are valid
 
             reserve.save()
@@ -152,8 +168,8 @@ def executiveroom(request):
 
 
 def conferenceroom(request):
-    form = forms.AvailabilityForm()
-    context = {"form":form}
+    form = forms.RoomForm()
+    context = {"form": form}
     reservation = Reservation
     if request.method == 'POST':
         form = forms.AvailabilityForm(request.POST or None)
@@ -165,7 +181,8 @@ def conferenceroom(request):
             # case 1: a room is booked before the check_in date, and checks out after the requested check_in date
             case_1 = Reservation.objects.filter(check_in__lte=check_in, check_out__gte=check_out).exists()
 
-            # case 2: room is booked before the requested check_out date and check_out date is after requested check_out date
+            # case 2: room is booked before the requested check_out date and check_out date is after requested
+            # check_out date
             case_2 = Reservation.objects.filter(check_in__lte=check_out, check_out__gte=check_out).exists()
 
             # case3: room is booked in a date which lies between the two requested check-in/check-out dates
@@ -173,8 +190,10 @@ def conferenceroom(request):
 
             # if either of these is true, abort and render the error
             if case_1 or case_2 or case_3:
-                return render(request, "availability.html",
-                              {"errors": "This room is not available on your selected dates", "form": form})
+                messages.add_message(request, messages.WARNING,
+                                     'Unfortunately there are no {} available on that date please pick another date'.format(
+                                         reserve.room_type))
+                form = forms.RoomForm()
             # else dates are valid
 
             reserve.save()
@@ -186,5 +205,3 @@ def conferenceroom(request):
 
 def complete_booking(request):
     return render(request, "bookings.html")
-
-		

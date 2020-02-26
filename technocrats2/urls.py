@@ -20,24 +20,22 @@ from django.conf.urls.static import static
 from core import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', views.home, name="home"),
-    path('about-us/', views.aboutus, name="about"),
-    path('contact/', views.contact, name="contact"),
-    #path('bookings/', views.bookings, name='bookings'),
-    #path('bookings/single-room', views.bookingsingle, name='bookingsingle'),
-    #path('bookings/double-room', views.singleview, name='bookingsdouble'),
-    path('rooms/', views.rooms, name='rooms'),
-    path('rooms/single-room', views.singleroom, name='singleroom'),
-    path('rooms/double-room', views.doubleroom, name='doubleroom'),
-    path('rooms/executive-room', views.executiveroom, name='executiveroom'),
-    path('conference-room/', views.conferenceroom, name='conferenceroom'),
-    # path('reservation/success', views.confirm, name='success'),
+                  path('admin/', admin.site.urls),
+                  path('', views.home, name="home"),
+                  path('about-us/', views.aboutus, name="about"),
+                  path('contact/', views.contact, name="contact"),
+                  # path('bookings/', views.bookings, name='bookings'),
+                  # path('bookings/single-room', views.bookingsingle, name='bookingsingle'),
+                  # path('bookings/double-room', views.singleview, name='bookingsdouble'),
+                  path('rooms/', views.rooms, name='rooms'),
+                  path('rooms/single-room', views.singleroom, name='singleroom'),
+                  path('rooms/double-room', views.doubleroom, name='doubleroom'),
+                  path('rooms/executive-room', views.executiveroom, name='executiveroom'),
+                  path('conference-room/', views.conferenceroom, name='conferenceroom'),
+                  # path('reservation/success', views.confirm, name='success'),
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
-    urlpatterns += static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
-
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
